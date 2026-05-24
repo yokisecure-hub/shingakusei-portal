@@ -24,7 +24,8 @@
 ```
 [Step 1]  A8.net 登録 & サイト審査通過
     ↓
-[Step 2]  即時提携プログラムから順に提携 → リンクURLを取得 → config.json に反映
+[Step 2]  即時提携プログラムから順に提携 → HTMLタグを affiliate_links.txt にまとめて貼付け
+          → update_affiliate_urls.py で config.json を一括更新 → push (約5分)
     ↓
 [Step 3]  チラシ・部屋常設ポスター・メール/LINEで導線設置(在学4年間ずっと)
 ```
@@ -119,6 +120,41 @@ https://px.a8.net/svt/ejp?a8mat=ABCDEF&a8ejpredirect=https%3A%2F%2Fwww.example-s
 
 ### 2-3. config.json への反映 + デプロイ
 
+#### 推奨: 一括反映ツール (update_affiliate_urls.py)
+
+A8 で複数案件と提携した直後は **一括反映ツール** を使うのが圧倒的に速い。
+20件で約60分かかる手動抽出が、HTML タグをまとめて貼り付けるだけで約5分に短縮される。
+
+```powershell
+cd C:\Claude\ALL\TenantPortal
+
+# 初回のみ: テンプレをコピー
+copy affiliate_links.example.txt affiliate_links.txt
+
+# affiliate_links.txt に A8 の HTML タグを「## サービス名」 + タグ で貼付け
+notepad affiliate_links.txt
+
+# ドライランで内容確認
+python update_affiliate_urls.py affiliate_links.txt --dry-run
+
+# 適用 (config.json.bak が自動作成される)
+python update_affiliate_urls.py affiliate_links.txt
+
+# 反映
+git add config.json
+git commit -m "Update affiliate URLs (bulk)"
+git push
+```
+
+ツールの仕様:
+- `## サービス名` ラベルは直後の `<a>` 1個だけに適用。省略時は `<img alt="...">` から推定
+- マッチは NFKC 正規化(全角/半角・括弧/空白統一) → 完全一致 → 部分一致 → difflib類似度 の3段
+- 同一サービスに複数 `<a>` (バナー+テキスト) は先頭のみ採用
+- `affiliate_links.txt` は `.gitignore` 済みなので公開リポジトリに混入しない
+- `--self-test` で内蔵5アサーション動作確認
+
+#### 1件だけ手動で書き換える場合
+
 ```powershell
 cd C:\Claude\ALL\TenantPortal
 # エディタで config.json を開き、対応する services[].url を A8 URL に書き換え
@@ -128,7 +164,7 @@ git push
 # 1〜2分後、https://yokisecure-hub.github.io/shingakusei-portal/ に反映
 ```
 
-複数件を一気に書き換えても OK。1件ずつコミットすれば、後で「どの差し替えで CVR が変わったか」を git blame で追える。
+1件ずつコミットすれば、後で「どの差し替えで CVR が変わったか」を git blame で追える。
 
 ---
 
