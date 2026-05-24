@@ -43,7 +43,7 @@
 
 ```powershell
 # 公開URL末尾に ?src=qr が自動付与され、流入元を計測可能
-python generate_qr.py https://<your-user>.github.io/tenant-portal/ --channel qr
+python generate_qr.py https://yokisecure-hub.github.io/shingakusei-portal/ --channel qr
 # qr_qr.png と qr_code.png が出力される(flyer.html が参照するのは qr_code.png)
 ```
 

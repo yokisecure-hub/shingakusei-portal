@@ -2,6 +2,8 @@
 
 学生向けアパート入居者向け、ゼロサブスクリプション型 紹介リンク・ポータル。
 
+🌐 **公開URL: https://yokisecure-hub.github.io/shingakusei-portal/**
+
 ## 構成
 
 | ファイル | 役割 |
@@ -53,7 +55,7 @@ git push -u origin main
 
 ### 3. 公開 URL の確認
 
-デプロイ完了後、URL は `https://<your-user>.github.io/tenant-portal/` で固定。`Actions` タブの最新ワークフロー成功ログ末尾にも URL が出力される。
+デプロイ完了後、URL は `https://yokisecure-hub.github.io/shingakusei-portal/` で固定。`Actions` タブの最新ワークフロー成功ログ末尾にも URL が出力される。
 
 ### 4. 掲載内容の更新
 
@@ -71,7 +73,7 @@ git push
 
 ```powershell
 pip install "qrcode[pil]"
-python generate_qr.py https://<your-user>.github.io/tenant-portal/
+python generate_qr.py https://yokisecure-hub.github.io/shingakusei-portal/
 ```
 
 `qr_code.png` がカレントに出力される。チラシに貼って印刷。

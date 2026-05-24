@@ -25,7 +25,7 @@ from urllib.parse import urlencode, urlparse, urlunparse, parse_qsl
 import qrcode
 from qrcode.constants import ERROR_CORRECT_H
 
-PORTAL_URL = "https://example.com/tenant-portal/"
+PORTAL_URL = "https://yokisecure-hub.github.io/shingakusei-portal/"
 CHANNELS = ("qr", "email", "line", "web")
 BOX_SIZE = 20  # 1モジュールあたりpx
 BORDER = 4     # モジュール余白(最小4)
