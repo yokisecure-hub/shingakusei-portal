@@ -1,0 +1,324 @@
+{
+  "portal": {
+    "title": "新生活セットアップ・ポータル",
+    "subtitle": "入居おめでとうございます。新生活に必要な手続きを、ここから一度で済ませましょう。",
+    "property_name": "学生向けアパート",
+    "footer_note": "※ 各サービスは外部事業者が提供します。お申込み・契約内容に関するお問い合わせは各事業者へお願いします。本ポータルの掲載リンクには紹介プログラムが含まれる場合があります。"
+  },
+  "optin_banner": {
+    "enabled": true,
+    "title": "新生活インフラ開通サポート",
+    "message": "このページからまとめて手配すれば、入居日からすぐにWi-Fiが使えて、手続きも1回で完了します。場合によってはキャッシュバックなどの特典もあります。"
+  },
+  "tracking": {
+    "utm_source": "tenant-portal",
+    "channel_param": "src",
+    "channels": {
+      "qr": { "medium": "print-qr", "label": "契約書類同封のチラシ" },
+      "email": { "medium": "email", "label": "入居案内メール" },
+      "line": { "medium": "line", "label": "入居案内LINE" },
+      "web": { "medium": "web", "label": "直接アクセス" }
+    },
+    "default_channel": "web"
+  },
+  "hub": {
+    "description": "個別の業者と1件ずつ提携する代わりに、1つのダッシュボードから複数カテゴリの紹介URLを発行できる『ハブ』へ無料登録します。登録後、各サービスの url を発行された紹介URLへ差し替えてください。",
+    "providers": [
+      {
+        "name": "A8.net",
+        "type": "アフィリエイトASP",
+        "scope": "光回線/引越/電気ガス/サブスク/学生特典まで横断発行可",
+        "fee": "登録・利用無料",
+        "url": "https://www.a8.net/"
+      },
+      {
+        "name": "バリューコマース",
+        "type": "アフィリエイトASP",
+        "scope": "Yahoo!系・大手通信/金融案件に強い",
+        "fee": "登録・利用無料",
+        "url": "https://www.valuecommerce.ne.jp/"
+      },
+      {
+        "name": "リンクライフ ライフサポート",
+        "type": "不動産オーナー向け ライフライン一括取次",
+        "scope": "管理戸数のある法人/個人オーナー向け、回線・電気ガス一括取次",
+        "fee": "パートナー契約は無料(法人/オーナー審査あり)",
+        "url": "https://www.linklife.co.jp/"
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "internet",
+      "label": "インターネット",
+      "description": "オンライン授業・課題提出に必須。光回線・工事不要WiFiから選べます。"
+    },
+    {
+      "id": "mobile",
+      "label": "スマホ・SIM",
+      "description": "学割やオンライン専用プランで月々の通信費を抑えられます。"
+    },
+    {
+      "id": "moving",
+      "label": "引越し",
+      "description": "学生プラン・単身パックなどを一括見積もりで比較できます。"
+    },
+    {
+      "id": "utility",
+      "label": "電気・ガス",
+      "description": "立会い不要のオンライン契約で、新生活開始日に間に合います。"
+    },
+    {
+      "id": "furniture",
+      "label": "家具・家電",
+      "description": "サブスクや学生プランで初期費用を抑え、卒業時の処分も楽に。"
+    },
+    {
+      "id": "finance",
+      "label": "銀行・カード",
+      "description": "仕送り受取り・サブスク支払い・キャッシュレス決済の入口。"
+    },
+    {
+      "id": "insurance",
+      "label": "保険",
+      "description": "賃貸契約に必要な家財保険、自転車・通学中のケガ補償など。"
+    },
+    {
+      "id": "student",
+      "label": "学生特典",
+      "description": "Prime Student・Microsoft 365 Education など学生限定の特典。"
+    }
+  ],
+  "services": [
+    {
+      "category": "internet",
+      "name": "GMOとくとくBB光",
+      "icon": "🌐",
+      "tagline": "工事費実質無料・高額キャッシュバック",
+      "description": "光回線(マンション/戸建て両対応)。v6プラス対応で混雑時間帯でも安定。学生1人暮らしの定番。",
+      "cta": "プラン詳細・申込みへ",
+      "url": "https://gmobb.jp/",
+      "hub_available": true
+    },
+    {
+      "category": "internet",
+      "name": "Broad WiMAX(工事不要ホームルーター)",
+      "icon": "📶",
+      "tagline": "コンセントに挿すだけ・即日利用可",
+      "description": "工事不要、最短当日発送。短期入居・引越し直後で工事を待てない方に。",
+      "cta": "対応エリアを確認する",
+      "url": "https://wimax-broad.jp/",
+      "hub_available": true
+    },
+    {
+      "category": "internet",
+      "name": "SoftBank Air",
+      "icon": "📡",
+      "tagline": "工事なしWiFi・SoftBankセット割",
+      "description": "ソフトバンクスマホとセットでスマホ代が割引。家族割と併用可。",
+      "cta": "料金プランを見る",
+      "url": "https://www.softbank.jp/ybb/air/",
+      "hub_available": true
+    },
+    {
+      "category": "mobile",
+      "name": "ahamo(ドコモ)",
+      "icon": "📱",
+      "tagline": "30GB / 月額2,970円・5分かけ放題込み",
+      "description": "ドコモ回線のオンライン専用プラン。海外ローミング20GBまで無料。学生の主回線に。",
+      "cta": "プラン詳細を見る",
+      "url": "https://ahamo.com/",
+      "hub_available": false
+    },
+    {
+      "category": "mobile",
+      "name": "LINEMO",
+      "icon": "💬",
+      "tagline": "ミニプラン3GB / 月額990円",
+      "description": "LINEギガフリー(LINE通話・トーク無制限)。サブ回線や通信量少なめの方に。",
+      "cta": "プランを比較する",
+      "url": "https://www.linemo.jp/",
+      "hub_available": true
+    },
+    {
+      "category": "mobile",
+      "name": "楽天モバイル",
+      "icon": "🅁",
+      "tagline": "データ無制限・楽天ポイント還元",
+      "description": "使った分だけ課金、3GB未満なら月1,078円。楽天市場のポイント+倍率UP。",
+      "cta": "申込みページへ",
+      "url": "https://network.mobile.rakuten.co.jp/",
+      "hub_available": true
+    },
+    {
+      "category": "moving",
+      "name": "引越し侍(一括見積もり)",
+      "icon": "🚚",
+      "tagline": "最大10社を比較・最安値プランが見つかる",
+      "description": "学生プラン・単身パック含めて一括見積もり。電話なしのネット見積もり可。",
+      "cta": "60秒で無料見積もり",
+      "url": "https://hikkoshizamurai.jp/",
+      "hub_available": true
+    },
+    {
+      "category": "moving",
+      "name": "SUUMO引越し見積もり",
+      "icon": "🏠",
+      "tagline": "電話なしOKを選べる安心の一括見積もり",
+      "description": "業者へ提供する個人情報を電話番号不要に切替可能。営業電話が苦手な方に。",
+      "cta": "見積もり比較を開始",
+      "url": "https://hikkoshi.suumo.jp/",
+      "hub_available": true
+    },
+    {
+      "category": "moving",
+      "name": "クロネコヤマト 単身引越サービス",
+      "icon": "📦",
+      "tagline": "ボックス単位・全国均一の安心料金",
+      "description": "荷物の少ない単身に最適。家具家電は新居で別調達する人向け。",
+      "cta": "料金シミュレーション",
+      "url": "https://www.008008.jp/moving/single/",
+      "hub_available": false
+    },
+    {
+      "category": "utility",
+      "name": "Looopでんき",
+      "icon": "💡",
+      "tagline": "基本料金0円・市場連動型",
+      "description": "Web申込で立会い不要、初期費用ゼロ。1人暮らしで電気量少なめの方に。",
+      "cta": "料金プランを見る",
+      "url": "https://looop-denki.com/",
+      "hub_available": true
+    },
+    {
+      "category": "utility",
+      "name": "東京ガスの電気＋ガスセット",
+      "icon": "🔥",
+      "tagline": "電気・ガス同時申込でセット割",
+      "description": "首都圏在住者向け。安心の大手で支払いを1本化、Webで5分申込み。",
+      "cta": "セット申込みへ",
+      "url": "https://home.tokyo-gas.co.jp/power/",
+      "hub_available": true
+    },
+    {
+      "category": "utility",
+      "name": "ENEOSでんき",
+      "icon": "⚡",
+      "tagline": "長期契約で割引・Tポイント還元",
+      "description": "全国対応。在学中ずっと使う方向けの割引プランあり。",
+      "cta": "料金を確認",
+      "url": "https://www.eneos.co.jp/denki/",
+      "hub_available": true
+    },
+    {
+      "category": "furniture",
+      "name": "CLAS(家具・家電サブスク)",
+      "icon": "🛋️",
+      "tagline": "月額制レンタル・退去時そのまま返却",
+      "description": "ベッド・冷蔵庫・洗濯機を月額で利用。卒業時の大型ごみ処分が不要。",
+      "cta": "ラインナップを見る",
+      "url": "https://clas.style/",
+      "hub_available": true
+    },
+    {
+      "category": "furniture",
+      "name": "subsclife",
+      "icon": "🪑",
+      "tagline": "新品家具を月額で・気に入れば購入も可",
+      "description": "新品家具のサブスク。デザイン家具中心、契約期間後は買取・返却・乗換が選べる。",
+      "cta": "家具を探す",
+      "url": "https://subsclife.com/",
+      "hub_available": true
+    },
+    {
+      "category": "furniture",
+      "name": "ニトリ ネットストア",
+      "icon": "🛏️",
+      "tagline": "新生活応援セット・配送組立サービス",
+      "description": "ベッド+寝具+収納などのセット商品多数。組立配送オプションで搬入後すぐ使える。",
+      "cta": "新生活特集を見る",
+      "url": "https://www.nitori-net.jp/",
+      "hub_available": true
+    },
+    {
+      "category": "finance",
+      "name": "楽天銀行",
+      "icon": "🏦",
+      "tagline": "ATM手数料優遇・給与/仕送り受取りに最適",
+      "description": "Web完結で口座開設。楽天証券との連携で普通預金金利UP。仕送り受取口座に。",
+      "cta": "口座開設へ",
+      "url": "https://www.rakuten-bank.co.jp/",
+      "hub_available": true
+    },
+    {
+      "category": "finance",
+      "name": "PayPay銀行",
+      "icon": "💴",
+      "tagline": "PayPayと即時連携・スマホ完結",
+      "description": "PayPay残高チャージが手数料無料。キャッシュレス中心の生活に。",
+      "cta": "口座開設をはじめる",
+      "url": "https://www.paypay-bank.co.jp/",
+      "hub_available": true
+    },
+    {
+      "category": "finance",
+      "name": "三井住友カード(NL)",
+      "icon": "💳",
+      "tagline": "年会費永年無料・コンビニ最大7%還元",
+      "description": "学生でも申込可。コンビニ・対象飲食店でのタッチ決済が高還元。",
+      "cta": "カード詳細を見る",
+      "url": "https://www.smbc-card.com/nyukai/affiliate/card/nl_general.jsp",
+      "hub_available": true
+    },
+    {
+      "category": "insurance",
+      "name": "日新火災 お部屋を借りるときの保険",
+      "icon": "🛡️",
+      "tagline": "賃貸入居時の家財保険・年4,000円〜",
+      "description": "賃貸契約で求められる家財保険を自分で選んで節約。借家人賠償・個人賠償付帯。",
+      "cta": "プラン詳細を見る",
+      "url": "https://www.nisshinfire.co.jp/products/okariru/",
+      "hub_available": false
+    },
+    {
+      "category": "insurance",
+      "name": "au損保 Bycle(自転車保険)",
+      "icon": "🚲",
+      "tagline": "通学・買い物中の事故補償",
+      "description": "自治体によっては自転車保険加入が義務。個人賠償責任最大2億円までカバー。",
+      "cta": "プランを確認",
+      "url": "https://www.au-sonpo.co.jp/pc/bycle/",
+      "hub_available": false
+    },
+    {
+      "category": "student",
+      "name": "Amazon Prime Student",
+      "icon": "🎓",
+      "tagline": "6ヶ月無料・以降は通常の半額(月額300円)",
+      "description": "教材の即日配送、Prime Video/Music/Reading も使える学生限定プラン。",
+      "cta": "無料体験を始める",
+      "url": "https://www.amazon.co.jp/joinstudent",
+      "hub_available": true
+    },
+    {
+      "category": "student",
+      "name": "Microsoft 365 Education",
+      "icon": "📝",
+      "tagline": "対象校の学生は無料で Word/Excel/PowerPoint",
+      "description": "学校発行のメールアドレスで Office アプリと OneDrive 1TB が無料利用可。",
+      "cta": "対象校か確認する",
+      "url": "https://www.microsoft.com/ja-jp/education/products/office",
+      "hub_available": false
+    },
+    {
+      "category": "student",
+      "name": "Spotify Premium Student",
+      "icon": "🎵",
+      "tagline": "月額480円・広告なし音楽聴き放題",
+      "description": "学割で通常の半額以下。Hulu とのセット特典付き(対象期間)。",
+      "cta": "学割を申込む",
+      "url": "https://www.spotify.com/jp/student/",
+      "hub_available": true
+    }
+  ]
+}

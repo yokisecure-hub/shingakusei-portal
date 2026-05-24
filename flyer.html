@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>新生活インフラ開通サポート - 入居者様用ご案内</title>
+  <style>
+    @page { size: A4; margin: 15mm; }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Yu Gothic UI", "Hiragino Sans", "Meiryo", -apple-system, sans-serif;
+      color: #1a2233;
+      background: #fff;
+    }
+    .sheet {
+      width: 180mm;
+      min-height: 267mm;
+      margin: 0 auto;
+      padding: 4mm 0;
+    }
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 2px solid #1f6feb;
+      padding-bottom: 6mm;
+      margin-bottom: 8mm;
+    }
+    .head__eyebrow {
+      font-size: 11pt;
+      color: #5c6577;
+      margin: 0;
+    }
+    .head__property {
+      font-size: 13pt;
+      font-weight: 700;
+      margin: 2mm 0 0;
+    }
+    .head__title {
+      font-size: 20pt;
+      color: #1f6feb;
+      font-weight: 800;
+      margin: 4mm 0 0;
+      letter-spacing: 0.02em;
+    }
+    .body {
+      display: grid;
+      grid-template-columns: 1fr 70mm;
+      gap: 12mm;
+      align-items: start;
+    }
+    .lead {
+      font-size: 12pt;
+      line-height: 1.7;
+    }
+    .lead strong { color: #1f6feb; }
+    .qr {
+      text-align: center;
+      border: 1px dashed #1f6feb;
+      border-radius: 6mm;
+      padding: 6mm 4mm 4mm;
+      background: #f6f9ff;
+    }
+    .qr__img {
+      width: 60mm;
+      height: 60mm;
+      object-fit: contain;
+      background: #fff;
+    }
+    .qr__placeholder {
+      width: 60mm;
+      height: 60mm;
+      background: #fff;
+      border: 1px solid #e3e7ef;
+      display: grid;
+      place-items: center;
+      color: #5c6577;
+      font-size: 9pt;
+      margin: 0 auto;
+    }
+    .qr__caption {
+      margin: 3mm 0 0;
+      font-size: 10pt;
+      color: #1a2233;
+      line-height: 1.5;
+    }
+    .qr__url {
+      margin: 2mm 0 0;
+      font-size: 8pt;
+      color: #5c6577;
+      word-break: break-all;
+    }
+
+    .benefits {
+      margin: 10mm 0 0;
+      padding: 6mm 6mm 5mm;
+      background: #f6f9ff;
+      border-left: 4mm solid #1f6feb;
+      border-radius: 0 4mm 4mm 0;
+    }
+    .benefits__title {
+      font-size: 12pt;
+      font-weight: 700;
+      margin: 0 0 3mm;
+      color: #1f6feb;
+    }
+    .benefits ul {
+      margin: 0;
+      padding-left: 5mm;
+      font-size: 11pt;
+      line-height: 1.75;
+    }
+    .benefits li { margin-bottom: 1mm; }
+
+    .footer {
+      margin: 12mm 0 0;
+      padding-top: 4mm;
+      border-top: 1px solid #e3e7ef;
+      font-size: 9pt;
+      color: #5c6577;
+      line-height: 1.6;
+    }
+
+    @media screen {
+      body { background: #ecedf2; padding: 10mm 0; }
+      .sheet { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.1); padding: 15mm; }
+    }
+    @media print {
+      body { background: #fff; }
+      .sheet { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header class="head">
+      <div>
+        <p class="head__eyebrow">入居者様用ご案内</p>
+        <p class="head__property" id="propertyName">学生向けアパート</p>
+      </div>
+      <div>
+        <p class="head__title">新生活インフラ<br/>開通サポート</p>
+      </div>
+    </header>
+
+    <div class="body">
+      <div>
+        <p class="lead">
+          ご入居おめでとうございます。<br/>
+          このページから手配すれば、<strong>入居日からすぐにWi-Fiが使え</strong>、ネット・電気・ガス・引越し等の手続きが<strong>1回で完了</strong>します。
+        </p>
+        <p class="lead">
+          場合によっては<strong>キャッシュバックなどの特典</strong>もあります。お申込み・ご検討はご自由にどうぞ。
+        </p>
+
+        <div class="benefits">
+          <p class="benefits__title">3つの安心</p>
+          <ul>
+            <li>入居日からWi-Fi/電気/ガスがすぐ使える状態に</li>
+            <li>申込みフォームは1つにまとまり、所要時間は最短5〜10分</li>
+            <li>営業電話を避けたい方は「電話なしOK」オプションも選択可</li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="qr">
+        <img class="qr__img" id="qrImage" src="qr_code.png" alt="ポータルへのQRコード"
+             onerror="this.outerHTML='<div class=&quot;qr__placeholder&quot;>QRコード未生成<br/>(generate_qr.pyで作成)</div>'"/>
+        <p class="qr__caption">
+          スマートフォンのカメラを<br/>かざしてアクセス
+        </p>
+        <p class="qr__url" id="portalUrl">https://example.com/tenant-portal/?src=qr</p>
+      </aside>
+    </div>
+
+    <footer class="footer">
+      <p>※ 掲載サービスは外部事業者が提供します。お申込み・契約内容に関するお問い合わせは各事業者へお願いします。本ご案内のリンクには紹介プログラムが含まれる場合があります。</p>
+      <p>※ お申込みは任意です。既にご利用中のサービスがある場合、本ご案内のご利用は不要です。</p>
+    </footer>
+  </div>
+</body>
+</html>

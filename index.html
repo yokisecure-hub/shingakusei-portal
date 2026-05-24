@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1f6feb" />
+  <meta name="description" content="入居者向け 新生活セットアップ・ポータル" />
+  <title>新生活セットアップ・ポータル</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="hero__eyebrow" id="propertyName">学生向けアパート</p>
+      <h1 class="hero__title" id="portalTitle">新生活セットアップ・ポータル</h1>
+      <p class="hero__subtitle" id="portalSubtitle">入居おめでとうございます。新生活に必要な手続きを、ここから一度で済ませましょう。</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <aside class="optin" id="optInBanner" hidden>
+      <div class="optin__icon" aria-hidden="true">✨</div>
+      <div class="optin__body">
+        <p class="optin__title">新生活インフラ開通サポート</p>
+        <p class="optin__message">このページからまとめて手配すれば、入居日からすぐにWi-Fiが使えて、手続きも1回で完了します。</p>
+      </div>
+    </aside>
+
+    <nav class="tabs" id="categoryTabs" aria-label="カテゴリー"></nav>
+
+    <section class="cards" id="serviceCards" aria-live="polite"></section>
+
+    <div class="empty" id="emptyState" hidden>
+      <p>該当するサービスがありません。</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p id="footerNote"></p>
+    <p class="footer__meta">© Tenant Portal</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
