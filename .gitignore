@@ -10,6 +10,15 @@ venv/
 qr_code.png
 qr_*.png
 
+# アフィリエイトリンク貼付けファイル(個人のa8matコードを含む可能性があるため非公開)
+affiliate_links.txt
+
+# config.json バックアップ
+*.json.bak
+
+# PDFエクスポート(マニュアルは .md で管理)
+*.pdf
+
 # OS
 .DS_Store
 Thumbs.db

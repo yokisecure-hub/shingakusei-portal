@@ -16,6 +16,8 @@
 | `app.js` | `config.json` をフェッチしてカード描画 / `?src=` を utm に変換 |
 | `config.json` | 掲載サービス・カテゴリーの一元管理 |
 | `generate_qr.py` | QR生成 (`--channel qr/poster/email/line/web`) |
+| `update_affiliate_urls.py` | A8 HTMLタグ一括貼付け→config.json 自動更新ツール |
+| `affiliate_links.example.txt` | アフィリエイトリンク貼付けテンプレート |
 | `flyer.html` | A4 印刷用チラシ (契約書類同封用 / `?src=qr`) |
 | `flyer_room.html` | A4 部屋常設ポスター (ブレーカー横/掲示板 / `?src=poster`) |
 | `templates/onboarding_email.md` | 入居案内メール テンプレート |

@@ -1,0 +1,48 @@
+# A8 HTMLタグ貼付けテンプレート
+#
+# このファイルをコピーして affiliate_links.txt にリネームし、
+# A8.net の管理画面で得た HTML タグをサービスごとに貼り付けてください。
+#
+# 使い方:
+#   1) このファイルを affiliate_links.txt にコピー
+#        cp affiliate_links.example.txt affiliate_links.txt
+#   2) 各サービスごとに「## サービス名」を書く(config.json#services[].name と一致させる)
+#   3) その下に A8.net の「広告リンク作成」画面で出る HTML タグを貼り付ける
+#      (バナータグでもテキストタグでもOK。複数貼っても先頭1個だけ使われる)
+#   4) ドライランで確認
+#        python update_affiliate_urls.py affiliate_links.txt --dry-run
+#   5) 適用
+#        python update_affiliate_urls.py affiliate_links.txt
+#   6) 反映
+#        git add config.json
+#        git commit -m "Update affiliate URLs"
+#        git push
+#
+# 注意:
+#   - affiliate_links.txt は .gitignore 済み(GitHub には公開されない)
+#   - 適用前に config.json.bak が自動作成される(戻したい場合 mv config.json.bak config.json)
+#   - 「## サービス名」を省略した場合、<img alt="..."> から自動推定する
+#   - サービス名のマッチは大文字小文字・全角半角・記号差を吸収する
+
+## GMOとくとくBB光
+<a href="https://px.a8.net/svt/ejp?a8mat=YOUR_MAT_CODE_001&amp;a8ejpredirect=https%3A%2F%2Fgmobb.jp%2F"><img border="0" width="320" height="50" alt="GMOとくとくBB光" src="https://www25.a8.net/svt/bgt?aid=000000000000&wid=001&eno=01&mid=s00000000000000000000&mc=1"></a><img border="0" width="1" height="1" src="https://www10.a8.net/0.gif?a8mat=YOUR_MAT_CODE_001" alt="">
+
+## 引越し侍(一括見積もり)
+<a href="https://px.a8.net/svt/ejp?a8mat=YOUR_MAT_CODE_002&amp;a8ejpredirect=https%3A%2F%2Fhikkoshizamurai.jp%2F"><img border="0" width="320" height="50" alt="引越し侍" src="https://www25.a8.net/svt/bgt?aid=000000000000&wid=001&eno=01&mid=s00000000000000000000&mc=1"></a><img border="0" width="1" height="1" src="https://www10.a8.net/0.gif?a8mat=YOUR_MAT_CODE_002" alt="">
+
+## 楽天カード
+<a href="https://px.a8.net/svt/ejp?a8mat=YOUR_MAT_CODE_003&amp;a8ejpredirect=https%3A%2F%2Fwww.rakuten-card.co.jp%2Fcard%2Frakuten-card%2F"><img border="0" width="320" height="50" alt="楽天カード" src="https://www25.a8.net/svt/bgt?aid=000000000000&wid=001&eno=01&mid=s00000000000000000000&mc=1"></a><img border="0" width="1" height="1" src="https://www10.a8.net/0.gif?a8mat=YOUR_MAT_CODE_003" alt="">
+
+# ↑ 上記はサンプル。残りも同じ形式で続けてください。
+# 想定対象(全29サービス・config.jsonで確認):
+#   internet:   GMOとくとくBB光 / Broad WiMAX / SoftBank Air
+#   mobile:     ahamo / LINEMO / 楽天モバイル
+#   moving:     引越し侍 / SUUMO引越し / クロネコヤマト単身
+#   utility:    Looopでんき / 東京ガス / ENEOSでんき
+#   furniture:  CLAS / subsclife / ニトリ
+#   daily:      プレミアムウォーター / Oisix
+#   finance:    楽天銀行 / PayPay銀行 / 三井住友カード(NL)
+#   insurance:  日新火災 / au損保Bycle
+#   career:     楽天カード / AOKI
+#   graduation: トレジャーファクトリー / リネット家電
+#   student:    Amazon Prime Student / Microsoft 365 Education / Spotify Student

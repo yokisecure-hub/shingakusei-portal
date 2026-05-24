@@ -236,7 +236,63 @@ https://px.a8.net/svt/ejp?a8mat=ABCDEF&a8ejpredirect=https%3A%2F%2Fwww.example.c
 
 ---
 
-## ステップ3 もらったリンクをサイトに反映する
+## ⚡ ステップ3 ショートカット版(推奨)
+
+「1件ずつ config.json を書き換える」のは正直時間がかかります(20件で60分)。
+**全件まとめて貼り付けて自動更新する** ツールを用意したので、初めての一括反映は **こちらを使うのが圧倒的に楽** です。
+
+### 手順
+
+```powershell
+cd C:\Claude\ALL\TenantPortal
+
+# 1. テンプレートをコピー(初回のみ)
+copy affiliate_links.example.txt affiliate_links.txt
+
+# 2. メモ帳で開いて、A8の HTML タグをサービスごとに貼り付け
+notepad affiliate_links.txt
+```
+
+`affiliate_links.txt` の中はこんな形式です:
+
+```
+## GMOとくとくBB光
+<a href="https://px.a8.net/...">...</a>
+
+## 引越し侍(一括見積もり)
+<a href="https://px.a8.net/...">...</a>
+```
+
+`## サービス名` の行は **`config.json` のサービス名と一致** させてください(全角半角・記号差は吸収されます)。
+その下に A8.net の「広告リンク作成」画面の HTML タグを **そのままコピペ** すればOK(URL部分だけ抜き出す必要なし)。
+
+```powershell
+# 3. ドライランで内容確認(まだ反映されない)
+python update_affiliate_urls.py affiliate_links.txt --dry-run
+
+# 4. 問題なければ適用
+python update_affiliate_urls.py affiliate_links.txt
+
+# 5. アップロード
+git add config.json
+git commit -m "Update affiliate URLs"
+git push
+```
+
+> 💡 **自動でバックアップ作成**: 適用前に `config.json.bak` が作成されます。間違えたら `move config.json.bak config.json` で1コマンド復元。
+> 💡 **affiliate_links.txt は非公開**: `.gitignore` 済みなので、GitHub には絶対に上がりません(あなたの a8mat コードは秘匿されます)。
+
+### マッチしない場合の対処
+
+ドライランで「未マッチ」「曖昧」と出た場合:
+- **未マッチ**: `## サービス名` を入力ファイルに付ける(または config.json の名前に合わせる)
+- **曖昧(複数候補)**: より具体的な `## サービス名` を付ける(例: `## GMO` → `## GMOとくとくBB光`)
+
+---
+
+## ステップ3 (手動版) もらったリンクをサイトに反映する
+
+ショートカット版で済ませた人はこの章は読まなくてOK。**1件だけ手で書き換えたい時** の手順です。
 
 ### 3-1. PowerShell を起動する
 
