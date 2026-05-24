@@ -1,20 +1,21 @@
 {
   "portal": {
-    "title": "新生活セットアップ・ポータル",
-    "subtitle": "入居おめでとうございます。新生活に必要な手続きを、ここから一度で済ませましょう。",
+    "title": "入居者専用・生活支援ポータル",
+    "subtitle": "入居時の手続きから、在学中の暮らし、卒業時の引越しまで。必要な時にここから手配できます。",
     "property_name": "学生向けアパート",
-    "footer_note": "※ 各サービスは外部事業者が提供します。お申込み・契約内容に関するお問い合わせは各事業者へお願いします。本ポータルの掲載リンクには紹介プログラムが含まれる場合があります。"
+    "footer_note": "※ 掲載サービスは外部事業者が提供します。お申込み・契約内容に関するお問い合わせは各事業者へお願いします。掲載リンクには紹介プログラムが含まれる場合があります。"
   },
   "optin_banner": {
     "enabled": true,
-    "title": "新生活インフラ開通サポート",
-    "message": "このページからまとめて手配すれば、入居日からすぐにWi-Fiが使えて、手続きも1回で完了します。場合によってはキャッシュバックなどの特典もあります。"
+    "title": "入居中ずっと使える生活支援",
+    "message": "入居時のWi-Fi/電気/ガスはもちろん、在学中のサブスク・就活カード・卒業時の引越しまで、必要な時に1回で手配できます。お申込みは任意です。"
   },
   "tracking": {
     "utm_source": "tenant-portal",
     "channel_param": "src",
     "channels": {
       "qr": { "medium": "print-qr", "label": "契約書類同封のチラシ" },
+      "poster": { "medium": "room-poster", "label": "部屋常設ポスター" },
       "email": { "medium": "email", "label": "入居案内メール" },
       "line": { "medium": "line", "label": "入居案内LINE" },
       "web": { "medium": "web", "label": "直接アクセス" }
@@ -22,71 +23,81 @@
     "default_channel": "web"
   },
   "hub": {
-    "description": "個別の業者と1件ずつ提携する代わりに、1つのダッシュボードから複数カテゴリの紹介URLを発行できる『ハブ』へ無料登録します。登録後、各サービスの url を発行された紹介URLへ差し替えてください。",
+    "status": "deferred",
+    "description": "ハブ(一括取次プラットフォーム)経由運用は、現状の4部屋規模ではB2B側の費用対効果が合わず先方審査の通過困難。将来5棟以上に拡大した場合に再検討する。現在の本線は A8.net 等の個別ASP(セルフサービス型)。",
     "providers": [
-      {
-        "name": "A8.net",
-        "type": "アフィリエイトASP",
-        "scope": "光回線/引越/電気ガス/サブスク/学生特典まで横断発行可",
-        "fee": "登録・利用無料",
-        "url": "https://www.a8.net/"
-      },
-      {
-        "name": "バリューコマース",
-        "type": "アフィリエイトASP",
-        "scope": "Yahoo!系・大手通信/金融案件に強い",
-        "fee": "登録・利用無料",
-        "url": "https://www.valuecommerce.ne.jp/"
-      },
-      {
-        "name": "リンクライフ ライフサポート",
-        "type": "不動産オーナー向け ライフライン一括取次",
-        "scope": "管理戸数のある法人/個人オーナー向け、回線・電気ガス一括取次",
-        "fee": "パートナー契約は無料(法人/オーナー審査あり)",
-        "url": "https://www.linklife.co.jp/"
-      }
+      { "name": "A8.net", "type": "個別ASP(本線)", "fee": "無料", "url": "https://www.a8.net/" },
+      { "name": "バリューコマース", "type": "個別ASP(本線)", "fee": "無料", "url": "https://www.valuecommerce.ne.jp/" },
+      { "name": "レプリス", "type": "B2Bハブ(将来候補)", "fee": "無料(法人/オーナー審査)", "url": "https://www.repris.co.jp/" },
+      { "name": "エクスパートナーズ", "type": "B2Bハブ(将来候補)", "fee": "無料(法人/オーナー審査)", "url": "https://www.expartners.co.jp/" }
     ]
   },
   "categories": [
     {
       "id": "internet",
       "label": "インターネット",
-      "description": "オンライン授業・課題提出に必須。光回線・工事不要WiFiから選べます。"
+      "description": "オンライン授業・課題提出に必須。光回線・工事不要WiFiから選べます。",
+      "lifecycle": "move-in"
     },
     {
       "id": "mobile",
       "label": "スマホ・SIM",
-      "description": "学割やオンライン専用プランで月々の通信費を抑えられます。"
+      "description": "学割やオンライン専用プランで月々の通信費を抑えられます。",
+      "lifecycle": "in-school"
     },
     {
       "id": "moving",
       "label": "引越し",
-      "description": "学生プラン・単身パックなどを一括見積もりで比較できます。"
+      "description": "入居時/卒業時の一括見積もり。学生プラン・単身パック対応。",
+      "lifecycle": "move-in-and-graduation"
     },
     {
       "id": "utility",
       "label": "電気・ガス",
-      "description": "立会い不要のオンライン契約で、新生活開始日に間に合います。"
+      "description": "立会い不要のオンライン契約で、新生活開始日に間に合います。",
+      "lifecycle": "move-in"
     },
     {
       "id": "furniture",
       "label": "家具・家電",
-      "description": "サブスクや学生プランで初期費用を抑え、卒業時の処分も楽に。"
+      "description": "サブスクや学生プランで初期費用を抑え、卒業時の処分も楽に。",
+      "lifecycle": "move-in"
+    },
+    {
+      "id": "daily",
+      "label": "暮らしの定期便",
+      "description": "ウォーターサーバー・食材宅配など、在学中の日常を支えるサービス。",
+      "lifecycle": "in-school"
     },
     {
       "id": "finance",
       "label": "銀行・カード",
-      "description": "仕送り受取り・サブスク支払い・キャッシュレス決済の入口。"
+      "description": "仕送り受取り・サブスク支払い・キャッシュレス決済の入口。",
+      "lifecycle": "in-school"
     },
     {
       "id": "insurance",
       "label": "保険",
-      "description": "賃貸契約に必要な家財保険、自転車・通学中のケガ補償など。"
+      "description": "賃貸契約に必要な家財保険、自転車・通学中のケガ補償など。",
+      "lifecycle": "move-in"
+    },
+    {
+      "id": "career",
+      "label": "就活サポート",
+      "description": "3〜4年生向け。就活カード・スーツレンタル等、就職活動に必要な手配。",
+      "lifecycle": "junior-senior"
+    },
+    {
+      "id": "graduation",
+      "label": "卒業準備",
+      "description": "退去時の不用品買取・引越し・サブスク解約等、卒業後の生活への引継ぎ。",
+      "lifecycle": "graduation"
     },
     {
       "id": "student",
       "label": "学生特典",
-      "description": "Prime Student・Microsoft 365 Education など学生限定の特典。"
+      "description": "Prime Student・Microsoft 365 Education など学生限定の特典。",
+      "lifecycle": "in-school"
     }
   ],
   "services": [
@@ -98,6 +109,7 @@
       "description": "光回線(マンション/戸建て両対応)。v6プラス対応で混雑時間帯でも安定。学生1人暮らしの定番。",
       "cta": "プラン詳細・申込みへ",
       "url": "https://gmobb.jp/",
+      "lifecycle": "move-in",
       "hub_available": true
     },
     {
@@ -108,6 +120,7 @@
       "description": "工事不要、最短当日発送。短期入居・引越し直後で工事を待てない方に。",
       "cta": "対応エリアを確認する",
       "url": "https://wimax-broad.jp/",
+      "lifecycle": "move-in",
       "hub_available": true
     },
     {
@@ -118,6 +131,7 @@
       "description": "ソフトバンクスマホとセットでスマホ代が割引。家族割と併用可。",
       "cta": "料金プランを見る",
       "url": "https://www.softbank.jp/ybb/air/",
+      "lifecycle": "move-in",
       "hub_available": true
     },
     {
@@ -128,6 +142,7 @@
       "description": "ドコモ回線のオンライン専用プラン。海外ローミング20GBまで無料。学生の主回線に。",
       "cta": "プラン詳細を見る",
       "url": "https://ahamo.com/",
+      "lifecycle": "in-school",
       "hub_available": false
     },
     {
@@ -138,6 +153,7 @@
       "description": "LINEギガフリー(LINE通話・トーク無制限)。サブ回線や通信量少なめの方に。",
       "cta": "プランを比較する",
       "url": "https://www.linemo.jp/",
+      "lifecycle": "in-school",
       "hub_available": true
     },
     {
@@ -148,6 +164,7 @@
       "description": "使った分だけ課金、3GB未満なら月1,078円。楽天市場のポイント+倍率UP。",
       "cta": "申込みページへ",
       "url": "https://network.mobile.rakuten.co.jp/",
+      "lifecycle": "in-school",
       "hub_available": true
     },
     {
@@ -155,9 +172,10 @@
       "name": "引越し侍(一括見積もり)",
       "icon": "🚚",
       "tagline": "最大10社を比較・最安値プランが見つかる",
-      "description": "学生プラン・単身パック含めて一括見積もり。電話なしのネット見積もり可。",
+      "description": "学生プラン・単身パック含めて一括見積もり。電話なしのネット見積もり可。入居時・卒業時の両方で使えます。",
       "cta": "60秒で無料見積もり",
       "url": "https://hikkoshizamurai.jp/",
+      "lifecycle": "move-in-and-graduation",
       "hub_available": true
     },
     {
@@ -168,6 +186,7 @@
       "description": "業者へ提供する個人情報を電話番号不要に切替可能。営業電話が苦手な方に。",
       "cta": "見積もり比較を開始",
       "url": "https://hikkoshi.suumo.jp/",
+      "lifecycle": "move-in-and-graduation",
       "hub_available": true
     },
     {
@@ -178,6 +197,7 @@
       "description": "荷物の少ない単身に最適。家具家電は新居で別調達する人向け。",
       "cta": "料金シミュレーション",
       "url": "https://www.008008.jp/moving/single/",
+      "lifecycle": "move-in-and-graduation",
       "hub_available": false
     },
     {
@@ -188,6 +208,7 @@
       "description": "Web申込で立会い不要、初期費用ゼロ。1人暮らしで電気量少なめの方に。",
       "cta": "料金プランを見る",
       "url": "https://looop-denki.com/",
+      "lifecycle": "move-in",
       "hub_available": true
     },
     {
@@ -198,6 +219,7 @@
       "description": "首都圏在住者向け。安心の大手で支払いを1本化、Webで5分申込み。",
       "cta": "セット申込みへ",
       "url": "https://home.tokyo-gas.co.jp/power/",
+      "lifecycle": "move-in",
       "hub_available": true
     },
     {
@@ -208,6 +230,7 @@
       "description": "全国対応。在学中ずっと使う方向けの割引プランあり。",
       "cta": "料金を確認",
       "url": "https://www.eneos.co.jp/denki/",
+      "lifecycle": "move-in",
       "hub_available": true
     },
     {
@@ -218,6 +241,7 @@
       "description": "ベッド・冷蔵庫・洗濯機を月額で利用。卒業時の大型ごみ処分が不要。",
       "cta": "ラインナップを見る",
       "url": "https://clas.style/",
+      "lifecycle": "move-in",
       "hub_available": true
     },
     {
@@ -228,6 +252,7 @@
       "description": "新品家具のサブスク。デザイン家具中心、契約期間後は買取・返却・乗換が選べる。",
       "cta": "家具を探す",
       "url": "https://subsclife.com/",
+      "lifecycle": "move-in",
       "hub_available": true
     },
     {
@@ -238,6 +263,29 @@
       "description": "ベッド+寝具+収納などのセット商品多数。組立配送オプションで搬入後すぐ使える。",
       "cta": "新生活特集を見る",
       "url": "https://www.nitori-net.jp/",
+      "lifecycle": "move-in",
+      "hub_available": true
+    },
+    {
+      "category": "daily",
+      "name": "プレミアムウォーター",
+      "icon": "💧",
+      "tagline": "天然水ウォーターサーバー・学割プランあり",
+      "description": "ペットボトル買い置きが不要に。学割で月額料金が一定期間割引されるプランあり。",
+      "cta": "学割プランを見る",
+      "url": "https://premium-water.net/",
+      "lifecycle": "in-school",
+      "hub_available": true
+    },
+    {
+      "category": "daily",
+      "name": "Oisix(オイシックス)",
+      "icon": "🥗",
+      "tagline": "ミールキット宅配・自炊が続く",
+      "description": "20分で2品作れるミールキット。自炊習慣を続けたい1人暮らしに。お試しセットあり。",
+      "cta": "お試しセットを見る",
+      "url": "https://www.oisix.com/",
+      "lifecycle": "in-school",
       "hub_available": true
     },
     {
@@ -248,6 +296,7 @@
       "description": "Web完結で口座開設。楽天証券との連携で普通預金金利UP。仕送り受取口座に。",
       "cta": "口座開設へ",
       "url": "https://www.rakuten-bank.co.jp/",
+      "lifecycle": "in-school",
       "hub_available": true
     },
     {
@@ -258,6 +307,7 @@
       "description": "PayPay残高チャージが手数料無料。キャッシュレス中心の生活に。",
       "cta": "口座開設をはじめる",
       "url": "https://www.paypay-bank.co.jp/",
+      "lifecycle": "in-school",
       "hub_available": true
     },
     {
@@ -268,6 +318,7 @@
       "description": "学生でも申込可。コンビニ・対象飲食店でのタッチ決済が高還元。",
       "cta": "カード詳細を見る",
       "url": "https://www.smbc-card.com/nyukai/affiliate/card/nl_general.jsp",
+      "lifecycle": "in-school",
       "hub_available": true
     },
     {
@@ -278,6 +329,7 @@
       "description": "賃貸契約で求められる家財保険を自分で選んで節約。借家人賠償・個人賠償付帯。",
       "cta": "プラン詳細を見る",
       "url": "https://www.nisshinfire.co.jp/products/okariru/",
+      "lifecycle": "move-in",
       "hub_available": false
     },
     {
@@ -288,6 +340,51 @@
       "description": "自治体によっては自転車保険加入が義務。個人賠償責任最大2億円までカバー。",
       "cta": "プランを確認",
       "url": "https://www.au-sonpo.co.jp/pc/bycle/",
+      "lifecycle": "move-in",
+      "hub_available": false
+    },
+    {
+      "category": "career",
+      "name": "楽天カード",
+      "icon": "💼",
+      "tagline": "就活・旅行・楽天ポイントの主力カード",
+      "description": "年会費永年無料、ETC追加可。就活の交通費精算や卒業旅行・新生活準備に。学生でも申込み可。",
+      "cta": "申込みページへ",
+      "url": "https://www.rakuten-card.co.jp/card/rakuten-card/",
+      "lifecycle": "junior-senior",
+      "hub_available": true
+    },
+    {
+      "category": "career",
+      "name": "AOKI 就活スーツ",
+      "icon": "👔",
+      "tagline": "学割・初回応援プランあり",
+      "description": "シーズン中のオンライン予約で来店スムーズ。試着〜採寸〜購入まで1回で完了。",
+      "cta": "学割を確認",
+      "url": "https://www.aoki-style.com/",
+      "lifecycle": "junior-senior",
+      "hub_available": false
+    },
+    {
+      "category": "graduation",
+      "name": "トレジャーファクトリー 宅配買取",
+      "icon": "📤",
+      "tagline": "家電・家具・服を段ボール集荷で買取",
+      "description": "退去時の処分を買取に。集荷キット無料、査定額に納得なら入金、不満なら返送可能。",
+      "cta": "宅配買取を申込む",
+      "url": "https://www.treasurefactory.co.jp/buy/takuhai/",
+      "lifecycle": "graduation",
+      "hub_available": true
+    },
+    {
+      "category": "graduation",
+      "name": "リネット家電宅配リサイクル",
+      "icon": "♻️",
+      "tagline": "小型家電の宅配リサイクル",
+      "description": "PC/スマホ/小型家電の処分を宅配で。回収料金は条件次第で無料。退去前のラスト整理に。",
+      "cta": "回収を申込む",
+      "url": "https://www.renet.jp/",
+      "lifecycle": "graduation",
       "hub_available": false
     },
     {
@@ -298,6 +395,7 @@
       "description": "教材の即日配送、Prime Video/Music/Reading も使える学生限定プラン。",
       "cta": "無料体験を始める",
       "url": "https://www.amazon.co.jp/joinstudent",
+      "lifecycle": "in-school",
       "hub_available": true
     },
     {
@@ -308,6 +406,7 @@
       "description": "学校発行のメールアドレスで Office アプリと OneDrive 1TB が無料利用可。",
       "cta": "対象校か確認する",
       "url": "https://www.microsoft.com/ja-jp/education/products/office",
+      "lifecycle": "in-school",
       "hub_available": false
     },
     {
@@ -318,6 +417,7 @@
       "description": "学割で通常の半額以下。Hulu とのセット特典付き(対象期間)。",
       "cta": "学割を申込む",
       "url": "https://www.spotify.com/jp/student/",
+      "lifecycle": "in-school",
       "hub_available": true
     }
   ]

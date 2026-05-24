@@ -1,6 +1,7 @@
-# 新生活セットアップ・ポータル
+# 入居者専用・生活支援ポータル
 
-学生向けアパート入居者向け、ゼロサブスクリプション型 紹介リンク・ポータル。
+学生向けアパート(4部屋)の入居者向け、ゼロサブスクリプション型 生活支援ポータル。
+**入居時の手続きから、在学中の暮らし、就活、卒業時の引越しまで** をワンページでカバーする LTV(ライフタイムバリュー)型構成。
 
 🌐 **公開URL: https://yokisecure-hub.github.io/shingakusei-portal/**
 
@@ -10,13 +11,14 @@
 | --- | --- |
 | `index.html` | エントリーポイント (モバイル最適化) |
 | `style.css` | デザイン (スマホ→タブレット2カラム対応) |
-| `app.js` | `config.json` をフェッチしてカード描画 |
+| `app.js` | `config.json` をフェッチしてカード描画 / `?src=` を utm に変換 |
 | `config.json` | 掲載サービス・カテゴリーの一元管理 |
-| `generate_qr.py` | チラシ印刷用 QR コード生成 (`--channel` で流入元タグ付与) |
-| `flyer.html` | A4 印刷用チラシ (契約書類同封用) |
+| `generate_qr.py` | QR生成 (`--channel qr/poster/email/line/web`) |
+| `flyer.html` | A4 印刷用チラシ (契約書類同封用 / `?src=qr`) |
+| `flyer_room.html` | A4 部屋常設ポスター (ブレーカー横/掲示板 / `?src=poster`) |
 | `templates/onboarding_email.md` | 入居案内メール テンプレート |
 | `templates/onboarding_line.md` | 入居案内 LINE テンプレート |
-| `OPERATOR_GUIDE.md` | 運用ガイド (ハブ登録→埋込→オプトインの3ステップ) |
+| `OPERATOR_GUIDE.md` | 運用ガイド (A8.net 主軸 + LTV最大化) |
 | `.github/workflows/deploy.yml` | GitHub Pages 自動デプロイ |
 
 ## ローカル動作確認
@@ -28,78 +30,63 @@ python -m http.server 8000
 
 ブラウザで http://localhost:8000/ を開く。スマホ実機で確認する場合は、PC の LAN 内 IP に置き換える (例: http://192.168.x.x:8000/)。
 
+`/flyer.html` (契約書類同封チラシ) と `/flyer_room.html` (部屋常設ポスター) も同じサーバから印刷プレビュー可能。
+
 ## GitHub Pages へのデプロイ
 
-### 1. リポジトリ作成 & 初回 push
-
-```powershell
-cd C:\Claude\ALL\TenantPortal
-git init -b main
-git add .
-git commit -m "Initial: tenant portal MVP"
-
-# GitHub CLI でリポジトリ作成 (Public 想定)
-gh repo create tenant-portal --public --source=. --remote=origin --push
-```
-
-`gh` 未導入の場合は、GitHub Web 上で空リポジトリを作って:
-
-```powershell
-git remote add origin https://github.com/<your-user>/tenant-portal.git
-git push -u origin main
-```
-
-### 2. Pages を有効化
-
-リポジトリの **Settings → Pages → Build and deployment** で `Source` を **GitHub Actions** に変更。`.github/workflows/deploy.yml` が初回 push で自動実行され、Pages にデプロイされる。
-
-### 3. 公開 URL の確認
-
-デプロイ完了後、URL は `https://yokisecure-hub.github.io/shingakusei-portal/` で固定。`Actions` タブの最新ワークフロー成功ログ末尾にも URL が出力される。
-
-### 4. 掲載内容の更新
-
-`config.json` の `services` 配列を編集 → commit & push のみで反映 (HTML/JS の変更は不要)。
+リポジトリは既に作成済み(`yokisecure-hub/shingakusei-portal`、Public、Pages = GitHub Actions Source)。
+`config.json` や HTML を編集して push すれば 1〜2 分後に反映されます。
 
 ```powershell
 git add config.json
-git commit -m "Update services"
+git commit -m "Update: replace XXX url with A8 affiliate link"
 git push
 ```
 
-数十秒〜数分でサイトが更新される。
+## QR コード生成
 
-## QR コード生成 (チラシ用)
+流入元別の QR を発行できます(`?src=` パラメータ付与):
 
 ```powershell
 pip install "qrcode[pil]"
-python generate_qr.py https://yokisecure-hub.github.io/shingakusei-portal/
+
+# 契約書類同封チラシ用
+python generate_qr.py --channel qr        # qr_qr.png + qr_code.png (flyer.html が参照)
+
+# 部屋常設ポスター用
+python generate_qr.py --channel poster    # qr_poster.png (flyer_room.html が参照)
+
+# 4種一括
+python generate_qr.py --all               # qr/poster/email/line/web + qr_code.png
 ```
 
-`qr_code.png` がカレントに出力される。チラシに貼って印刷。
+## 運用方針(超要約)
 
-## 自動化された代理店スキーム(3ステップ)
+詳細は [OPERATOR_GUIDE.md](./OPERATOR_GUIDE.md) 参照。
 
-不動産オーナー向けの収益化運用は **OPERATOR_GUIDE.md** に集約しました。要点は以下:
+### 主軸: A8.net (個別ASP / セルフサービス型)
 
-1. **ハブ登録** — A8.net 等のアフィリエイトASP(無料) に登録し、1つのダッシュボードから全カテゴリの紹介URLを発行
-2. **オンボーディング埋込** — 契約書類に `flyer.html` 印刷チラシを同封 / 入居案内メール・LINE に `templates/` のテンプレで案内
-3. **オプトイン提示** — 「1回で完了します」「お申込みは任意です」と入居者メリットのみを提示
+- ハブ企業(B2B一括取次)は 4部屋規模では先方の採算が合わず審査困難 → **A8.net 一択**
+- **即時提携** プログラムから順に提携 → 発行されたリンクURL(`<a href="...">` の中身だけ) を `config.json` の `services[].url` に貼付
+- 5棟以上に拡大したらハブ企業へのパートナー申請を再検討(`config.json#hub` に意思記録済み)
 
-ポータルは `?src=qr/email/line/web` を読み取り、各サービスへの遷移URLに `utm_source/medium/campaign` を自動付与するため、ハブのレポートで流入チャネル別の成果を計測できます。
+### LTV 最大化 — 4年間ずっと使われる導線
 
-詳細手順・文言ガイドライン・収益レンジ目安は [OPERATOR_GUIDE.md](./OPERATOR_GUIDE.md) を参照。
+| 配置 | 配布物 | utm_medium |
+| --- | --- | --- |
+| 契約書類への同封 | `flyer.html` 印刷 | `print-qr` |
+| ブレーカー横 / 玄関裏 / 掲示板 | `flyer_room.html` 印刷 (各部屋常設) | `room-poster` |
+| 入居案内メール | `templates/onboarding_email.md` | `email` |
+| 入居案内 LINE | `templates/onboarding_line.md` | `line` |
 
-## アフィリエイト URL への差し替え
+`app.js` が `?src=<channel>` を読んで各サービスへの遷移URLに `utm_source=tenant-portal & utm_medium=<channel-medium> & utm_campaign=<property_name>` を自動付与するため、A8.net 管理画面で **どの導線が稼いだか** が見える。
 
-`config.json` の各サービス `url` は、現状は公式サイトを指している。各事業者の紹介プログラム審査後に、発行された紹介 URL へ置き換える。
+### 掲載カテゴリ (11)
 
-| サービス | 紹介プログラム例 |
-| --- | --- |
-| GMO とくとくBB 光 | A8.net / バリューコマース |
-| 楽天モバイル / 楽天銀行 | 楽天アフィリエイト |
-| Amazon Prime Student | Amazon アソシエイト |
-| CLAS / subsclife | A8.net |
-| 引越し侍 / SUUMO引越し | A8.net / afb |
+入居時(move-in) / 在学中(in-school) / 就活期(junior-senior) / 卒業期(graduation) のライフサイクル別:
 
-差し替え後も `app.js` の HTML 生成は `rel="noopener noreferrer sponsored"` で sponsored 属性を自動付与するため、検索エンジンガイドラインに準拠。
+- `internet` / `mobile` / `moving` / `utility` / `furniture` / `daily` / `finance` / `insurance` / `career` / `graduation` / `student`
+
+### 想定収益(4部屋規模)
+
+年間 4〜10件 / 2.5〜11万円 (サーバー代0円 × 加盟金0円 → **赤字リスク0**)

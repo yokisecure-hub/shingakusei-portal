@@ -26,7 +26,9 @@ jobs:
           cp index.html style.css app.js config.json _site/
           # 印刷チラシ(任意公開) と QR(生成済みであれば) も配信物に含める
           [ -f flyer.html ] && cp flyer.html _site/ || true
+          [ -f flyer_room.html ] && cp flyer_room.html _site/ || true
           [ -f qr_code.png ] && cp qr_code.png _site/ || true
+          [ -f qr_poster.png ] && cp qr_poster.png _site/ || true
           # 404ページ(任意)
           [ -f 404.html ] && cp 404.html _site/ || true
 

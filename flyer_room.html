@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>入居者専用ポータル - 部屋常設ポスター</title>
+  <style>
+    @page { size: A4; margin: 12mm; }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Yu Gothic UI", "Hiragino Sans", "Meiryo", -apple-system, sans-serif;
+      color: #1a2233;
+      background: #fff;
+    }
+    .sheet {
+      width: 186mm;
+      min-height: 273mm;
+      margin: 0 auto;
+      padding: 6mm 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .head {
+      text-align: center;
+      padding-bottom: 6mm;
+      border-bottom: 2px solid #1f6feb;
+      margin-bottom: 8mm;
+    }
+    .head__eyebrow {
+      font-size: 12pt;
+      color: #5c6577;
+      margin: 0;
+      letter-spacing: 0.1em;
+    }
+    .head__title {
+      font-size: 28pt;
+      font-weight: 800;
+      color: #1f6feb;
+      margin: 3mm 0 0;
+      letter-spacing: 0.02em;
+    }
+    .head__property {
+      font-size: 13pt;
+      font-weight: 600;
+      color: #1a2233;
+      margin: 3mm 0 0;
+    }
+
+    .qrwrap {
+      text-align: center;
+      margin: 4mm 0 8mm;
+    }
+    .qrwrap__img {
+      width: 100mm;
+      height: 100mm;
+      object-fit: contain;
+      background: #fff;
+      border: 1mm solid #1f6feb;
+      border-radius: 4mm;
+      padding: 3mm;
+    }
+    .qrwrap__placeholder {
+      width: 100mm;
+      height: 100mm;
+      background: #f6f9ff;
+      border: 1mm dashed #1f6feb;
+      border-radius: 4mm;
+      display: grid;
+      place-items: center;
+      color: #5c6577;
+      font-size: 10pt;
+      margin: 0 auto;
+      text-align: center;
+      padding: 5mm;
+    }
+    .qrwrap__caption {
+      margin: 5mm 0 0;
+      font-size: 14pt;
+      font-weight: 700;
+      color: #1a2233;
+    }
+    .qrwrap__sub {
+      margin: 2mm 0 0;
+      font-size: 10pt;
+      color: #5c6577;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5mm;
+      margin: 4mm 0 0;
+    }
+    .card {
+      border: 1px solid #cfe0ff;
+      border-radius: 4mm;
+      padding: 5mm;
+      background: #f6f9ff;
+    }
+    .card__title {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #1f6feb;
+      margin: 0 0 2mm;
+    }
+    .card__list {
+      margin: 0;
+      padding-left: 4mm;
+      font-size: 10pt;
+      line-height: 1.65;
+    }
+    .card__list li { margin-bottom: 1mm; }
+
+    .footer {
+      margin-top: auto;
+      padding-top: 6mm;
+      border-top: 1px solid #e3e7ef;
+      font-size: 8.5pt;
+      color: #5c6577;
+      line-height: 1.55;
+    }
+    .footer p { margin: 1mm 0; }
+
+    @media screen {
+      body { background: #ecedf2; padding: 10mm 0; }
+      .sheet { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.1); padding: 12mm; }
+    }
+    @media print {
+      body { background: #fff; }
+      .sheet { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header class="head">
+      <p class="head__eyebrow">入居者専用 / 在学中ずっと使えます</p>
+      <h1 class="head__title">生活支援ポータル</h1>
+      <p class="head__property">学生向けアパート</p>
+    </header>
+
+    <section class="qrwrap">
+      <img class="qrwrap__img" src="qr_poster.png" alt="ポータルへのQRコード"
+           onerror="this.outerHTML='<div class=&quot;qrwrap__placeholder&quot;>QRコード未生成<br/>python generate_qr.py --channel poster<br/>で qr_poster.png を生成してください</div>'"/>
+      <p class="qrwrap__caption">スマホのカメラをかざしてアクセス</p>
+      <p class="qrwrap__sub">https://yokisecure-hub.github.io/shingakusei-portal/?src=poster</p>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <p class="card__title">🌐 入居したばかりの方</p>
+        <ul class="card__list">
+          <li>すぐに使える Wi-Fi の手配</li>
+          <li>電気・ガスの開通(立会い不要)</li>
+          <li>家具・家電のサブスク</li>
+          <li>家財保険の比較</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="card__title">📱 在学中の暮らしに</p>
+        <ul class="card__list">
+          <li>格安SIMへの乗り換え</li>
+          <li>銀行口座・クレカの作成</li>
+          <li>水・食材の定期便</li>
+          <li>学割サブスク(Prime/Spotify等)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="card__title">💼 就活シーズン</p>
+        <ul class="card__list">
+          <li>就活用カードの申込み</li>
+          <li>スーツレンタル・購入</li>
+        </ul>
+      </div>
+      <div class="card">
+        <p class="card__title">🎓 卒業準備</p>
+        <ul class="card__list">
+          <li>退去時の引越し見積もり</li>
+          <li>不用品の宅配買取</li>
+          <li>小型家電のリサイクル</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>※ 掲載サービスは外部事業者が提供します。お申込み・契約内容に関するお問い合わせは各事業者へお願いします。</p>
+      <p>※ 本ご案内のリンクには紹介プログラムが含まれる場合があります。お申込みは任意です。</p>
+      <p>※ 既にご利用中のサービスがある場合、本ご案内のご利用は不要です。</p>
+    </footer>
+  </div>
+</body>
+</html>
