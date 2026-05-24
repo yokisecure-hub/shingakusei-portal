@@ -5,6 +5,8 @@
 
 🌐 **公開URL: https://yokisecure-hub.github.io/shingakusei-portal/**
 
+📘 **はじめての方は [BEGINNER_MANUAL.md](./BEGINNER_MANUAL.md) を最初に読んでください**(IT・アフィリエイト初心者向け、A8.net登録から最初の報酬まで全手順)
+
 ## 構成
 
 | ファイル | 役割 |
@@ -18,7 +20,8 @@
 | `flyer_room.html` | A4 部屋常設ポスター (ブレーカー横/掲示板 / `?src=poster`) |
 | `templates/onboarding_email.md` | 入居案内メール テンプレート |
 | `templates/onboarding_line.md` | 入居案内 LINE テンプレート |
-| `OPERATOR_GUIDE.md` | 運用ガイド (A8.net 主軸 + LTV最大化) |
+| `BEGINNER_MANUAL.md` | 完全初心者向けマニュアル (A8.net登録〜報酬振込まで全手順) |
+| `OPERATOR_GUIDE.md` | 運用ガイド (A8.net 主軸 + LTV最大化・熟達者向け) |
 | `.github/workflows/deploy.yml` | GitHub Pages 自動デプロイ |
 
 ## ローカル動作確認
